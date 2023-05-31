@@ -8,7 +8,6 @@ from scipy import linalg
 def Whitening(X1,X2):
 
     X = [X1,X2]
-    print(X)
 
     #Calcul de Xmean
     Xmean = np.mean(X,0)
