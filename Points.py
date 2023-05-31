@@ -36,6 +36,8 @@ y2 = y2 + noise2
 
 plt.subplot(1,3,1)
 plt.plot(x, y1, 'r+',x,y2,'b+')
+plt.title("Donnée Initial")
+plt.axis('off')
 
 
 A = [[0.6,0.4],[0.4,0.6]]
@@ -44,6 +46,8 @@ X2 = A[1][0] * y1 + A[1][1]* y2
 
 plt.subplot(1,3,2)
 plt.plot(x, X1, 'r+',x,X2,'b+')
+plt.title("Donnée Mélangée")
+
 
 if whitening :
     X1,X2,V,Dinv = wt.Whitening(X1,X2)
@@ -52,5 +56,7 @@ S1,S2 = ica.ICA(X1,X2)
 
 plt.subplot(1,3,3)
 plt.plot(x, S1, 'r+',x,S2,'b+')
+plt.title("Donnée retrouvée")
+
 
 plt.show()
