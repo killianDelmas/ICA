@@ -54,7 +54,12 @@ tailles = img3.shape
 X1 = img3.reshape(-1)
 X2 = img4.reshape(-1)
 
+X1,X2,V,Dinv = wt.Whitening(X1,X2)
+
 S1,S2 = ica.ICA(X1,X2)
+
+S1,S2 = wt.dewhitening(S1,S2,V,Dinv)
+
 
 S1 = S1- min(S1)
 S1 = S1/max(S1)

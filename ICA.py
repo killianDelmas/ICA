@@ -1,15 +1,13 @@
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
-import sys
 import math
 import Whitening as wt
 
 def ICA(X1,X2):
-    
+
     X1centre = X1 - np.mean(X1)
     X2centre = X2 - np.mean(X2)
-
 
     # Etape 1 : 
 

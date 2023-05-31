@@ -46,7 +46,7 @@ plt.subplot(1,3,2)
 plt.plot(x, X1, 'r+',x,X2,'b+')
 
 if whitening :
-    X1,X2 = wt.Whitening(X1,X2)
+    X1,X2,V,Dinv = wt.Whitening(X1,X2)
 
 S1,S2 = ica.ICA(X1,X2)
 
