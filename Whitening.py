@@ -5,6 +5,7 @@ import sys
 import math
 from scipy import linalg
 
+# Applique le Whitening sur nos données
 def Whitening(X1,X2):
 
     X = [X1,X2]
@@ -21,7 +22,7 @@ def Whitening(X1,X2):
 
     Dinv = np.diag((w)**0.5)
     Dinv = Dinv.real.round(4)
-    
+
     D = np.diag(1/((w+.1e-5)**0.5))
     D = D.real.round(4)
 
@@ -29,6 +30,7 @@ def Whitening(X1,X2):
 
     return Xpret[0],Xpret[1],V,Dinv
 
+# Dewhitening : Sert à avoir une Image lisible
 def dewhitening(S1,S2,V,Dinv) :
 
     S = [S1,S2]

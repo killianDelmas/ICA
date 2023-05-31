@@ -26,6 +26,14 @@ else
     echo
     killall python3
     /bin/python3 ./ImageAvecWhitening.py parthenon.jpg space.jpg &
+    read -n 1 -s -r -p "Appuyez sur Entrée pour lancer Image avec parthenon et space et Whitening"
+    echo
+    killall python3
+    /bin/python3 ./ImageGradient.py bleu.jpg rouge.webp &
+    read -n 1 -s -r -p "Appuyez sur Entrée pour lancer Image avec parthenon et space et Whitening"
+    echo
+    killall python3
+    /bin/python3 ./ImageGradient.py parthenon.jpg space.jpg &
     read -n 1 -s -r -p "Appuyez sur Entrée pour terminer"
     echo
     killall python3

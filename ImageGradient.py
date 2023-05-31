@@ -5,6 +5,7 @@ import sys
 import math
 import ICA as ica
 import Whitening as wt
+import ICAgradient as fa
 
 arguments = sys.argv
 size = (480,256)
@@ -17,6 +18,7 @@ if len(arguments) > 2 :
     imag2 = Image.open(arguments[2])
     nimg2 = imag2.resize(size)
     nimg2.save('Image2.png','png')
+
 
 #Transfome les images en array
 image1 = plt.imread('Image1.png')
@@ -49,17 +51,17 @@ plt.imshow(img4)
 plt.title('Image mélangée 2')
 plt.axis('off')
     
-# Reshape les images en vecteurs
+
 tailles = img3.shape
 
+# Reshape les images en vecteurs
 X1 = img3.reshape(-1)
 X2 = img4.reshape(-1)
 
-X1,X2,V,Dinv = wt.Whitening(X1,X2)
+S,hs,gs = fa.gradiantICA(X1,X2)
 
-S1,S2 = ica.ICA(X1,X2)
-
-S1,S2 = wt.dewhitening(S1,S2,V,Dinv)
+S1 = S[0]
+S2 = S[1]
 
 # Retransforme les vecteurs en image
 S1 = S1- min(S1)
@@ -78,5 +80,7 @@ plt.subplot(3,2,6)
 plt.imshow(S2)
 plt.title("Image reconstruite 2")
 plt.axis('off')
+
+
 
 plt.show()
