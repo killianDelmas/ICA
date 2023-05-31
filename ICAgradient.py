@@ -12,7 +12,7 @@ def gradiantICA(X1,X2):
     X = np.array([X1,X2])
     X = X.T
     u = X@W
-    maxiter = 100
+    maxiter = 50
     eta = 0.25
     hs = np.zeros(maxiter)
     gs = np.zeros(maxiter)
