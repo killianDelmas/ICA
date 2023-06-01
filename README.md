@@ -1,6 +1,7 @@
 # ICA
 
 Pour lancer tous les exemples d'un coup executer le script script_rapide.sh
+
 Pour lancer les exemples petit à petit executer le script script_exemple.sh
 ICA.py présente une première implémentation de l'ICA
 ICAgradient.py présente une seconde implémentation de l'ICA
